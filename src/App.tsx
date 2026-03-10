@@ -7,6 +7,7 @@ import Timeline from './components/Timeline';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Footer2 from './components/footer2';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Code2, Cpu, Database, Globe, Layout, Terminal } from 'lucide-react';
 
@@ -47,6 +48,26 @@ const FloatingIcons = () => {
 };
 
 export default function App() {
+  useEffect(() => {
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+
+      if (anchor && anchor.getAttribute('href')?.startsWith('#')) {
+        const targetId = anchor.getAttribute('href')?.slice(1);
+        const targetElement = targetId ? document.getElementById(targetId) : null;
+
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+    return () => document.removeEventListener('click', handleAnchorClick);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background bg-mesh-animated selection:bg-accent/30 selection:text-accent">
       <Navbar />

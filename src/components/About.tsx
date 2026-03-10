@@ -36,7 +36,7 @@ const About = () => {
               <img
                 src="https://picsum.photos/seed/alex/800/800"
                 alt="Alex Rivera"
-                className="w-full h-full object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover rounded-xl transition-all duration-500"
                 referrerPolicy="no-referrer"
               />
             </div>
