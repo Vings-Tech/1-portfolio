@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Github, ExternalLink, Folder } from 'lucide-react';
+import { Github, ExternalLink, Folder, Globe } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -10,6 +10,7 @@ const Projects = () => {
       tech: ['React', 'Firebase', 'Tailwind CSS'],
       github: '#',
       live: '#',
+      vercel: 'https://edutrack-pro.vercel.app',
       image: 'https://picsum.photos/seed/edutrack/800/450',
     },
     {
@@ -19,6 +20,7 @@ const Projects = () => {
       tech: ['Next.js', 'CoinGecko API', 'Chart.js'],
       github: '#',
       live: '#',
+      vercel: 'https://cryptopulse.vercel.app',
       image: 'https://picsum.photos/seed/crypto/800/450',
     },
     {
@@ -28,6 +30,7 @@ const Projects = () => {
       tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       github: '#',
       live: '#',
+      vercel: 'https://ecostore.vercel.app',
       image: 'https://picsum.photos/seed/eco/800/450',
     },
   ];
@@ -92,13 +95,23 @@ const Projects = () => {
                   </ul>
                 </div>
 
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="flex flex-wrap gap-2 mb-5">
                   {project.tech.map(t => (
                     <span key={t} className="text-[10px] uppercase tracking-wider font-bold text-accent/80 px-2 py-1 bg-accent/5 rounded border border-accent/10">
                       {t}
                     </span>
                   ))}
                 </div>
+
+                <a
+                  href={project.vercel}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto w-full btn-gradient py-3 rounded-xl text-sm flex items-center justify-center gap-2 group/btn"
+                >
+                  <Globe size={16} className="group-hover/btn:rotate-12 transition-transform" />
+                  View Website
+                </a>
               </div>
             </motion.div>
           ))}
